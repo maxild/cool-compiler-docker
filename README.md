@@ -1,6 +1,6 @@
 ## Cool Compiler
 
-TODO: Write some stuff here....
+Developer environment for the self-paced version of Stanford's undergraduate course on Compilers (cs164).
 
 ### Build
 
@@ -12,4 +12,10 @@ docker build -t maxfire/cool-compiler .
 
 ```bash
 docker run -it --rm --name cool-compiler -v //c/Dev/Compilers:/src maxfire/cool-compiler
+```
+
+or
+
+```powershell
+.\run.ps1
 ```
