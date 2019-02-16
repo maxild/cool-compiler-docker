@@ -25,11 +25,7 @@ RUN buildDeps=" \
     csh \
     libxaw7-dev \
     "; \
-    apt-get update && apt-get -y upgrade && apt-get install -y --no-install-recommends $buildDeps \
-    mkdir /src/class && \
-    cd /src/class && \
-    wget https://s3-us-west-1.amazonaws.com/prod-edx/Compilers/Misc/student-dist.tar.gz --no-check-certificate && \
-    tar -xf student-dist.tar.gz
+    apt-get update && apt-get -y upgrade && apt-get install -y --no-install-recommends $buildDeps
 
 # APT cleanup to reduce image size
 #    When you run 'apt-get update', a list of packages will get downloaded from the Ubuntu servers. These
@@ -45,7 +41,6 @@ ADD root/.scripts /root/.scripts
 
 # Set environment variables.
 ENV HOME /root
-ENV PATH /src/class/bin:$PATH
 
 WORKDIR /root
 ENTRYPOINT /bin/bash

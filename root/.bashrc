@@ -23,9 +23,15 @@ alias vi='vim'
 # Colorize directory listing
 alias ls="ls -ph --color=auto"
 
+# Cool compiler and other tools
+if [ -d "/src/class/bin" ]; then
+    export PATH="/src/class/bin:$PATH";
+fi
+
 # Colorize grep
 if echo hello|grep --color=auto l >/dev/null 2>&1; then
-  export GREP_OPTIONS="--color=auto" GREP_COLOR="1;31"
+  alias grep="grep --color=auto"
+  export GREP_COLOR="1;31"
 fi
 
 # Shell
