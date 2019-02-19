@@ -2,8 +2,8 @@
 # cs164 -- cool compiler developer environment -- Dockerfile
 #
 
-# Pull base image.
-FROM ubuntu:latest
+# 32 bit Ubuntu required by cs164 course (to run SIMP)
+FROM i386/ubuntu:latest
 LABEL authors="Morten Maxild <mmaxild@gmail.com>"
 
 # https://lagunita.stanford.edu/courses/Engineering/Compilers/Fall2014/6b750292e90d4950b895f621a5671b49/
@@ -27,6 +27,10 @@ RUN buildDeps=" \
     "; \
     apt-get update && apt-get -y upgrade && apt-get install -y --no-install-recommends $buildDeps
 
+# TODO: better install 32-bit ubuntu (see above)
+#RUN apt-get install lib32z1 lib32ncurses5 lib32bz2-1.0 lib32stdc++6
+#RUN apt-get install lib32z1 lib32ncurses5 lib32bz2-1.0
+
 # APT cleanup to reduce image size
 #    When you run 'apt-get update', a list of packages will get downloaded from the Ubuntu servers. These
 #    files are then stored in /var/lib/apt/lists/. You can safely remove the contents of that directory as
@@ -44,6 +48,3 @@ ENV HOME /root
 
 WORKDIR /root
 ENTRYPOINT /bin/bash
-
-# Define default command.
-#CMD ["bash"]

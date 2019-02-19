@@ -23,8 +23,18 @@ alias vi='vim'
 # Colorize directory listing
 alias ls="ls -ph --color=auto"
 
+#
+# cs164 aliases
+#
+
+# cool compiler
+alias coolc="bin/coolc"
+
+# spim MIPS simulator (the compiler generates MIPS assembly code)
+alias spim="bin/spim"
+
 # Cool compiler and other tools
-if [ -d "/src/class/bin" ]; then
+if [ -d /src/class/bin ]; then
     export PATH="/src/class/bin:$PATH";
 fi
 
@@ -50,3 +60,8 @@ source $HOME/.scripts/git-completion.sh
 
 # Z
 source $HOME/.scripts/z.sh
+
+# cd into cool-root dir
+if [ -d /src/class ]; then
+    cd /src/class
+fi
